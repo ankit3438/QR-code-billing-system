@@ -150,8 +150,8 @@ def addproduct():
         pprice = productprice_entry.get()
         if(pcode and pname and pmin and pprice):
             try:
-                url = pyqrcode.create(pcode)
-                url.png(pname, scale=6)
+                url = pyqrcode.create(pcode) #generating the qr
+                url.png(pname, scale=6) #saving the qr in png format as a name of product
                 query = "INSERT INTO  products (product_code ,product_name ,min_quantity ,price) VALUES(%s,%s,%s,%s)"
                 my_data = (pcode, pname, pmin, pprice)
                 mycursor.execute(query, my_data)# insert data
